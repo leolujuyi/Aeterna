@@ -13,6 +13,7 @@ import { GrainOverlay } from './components/GrainOverlay';
 import { AIAgentDemo } from './components/AIAgentDemo';
 import { Ecosystem } from './components/Ecosystem';
 import { CTA } from './components/CTA';
+import { AppDownload } from './components/AppDownload';
 
 const App: React.FC = () => {
   const [isAgentDemoOpen, setIsAgentDemoOpen] = useState(false);
@@ -23,6 +24,7 @@ const App: React.FC = () => {
       <Header />
       <main>
         <Hero onOpenAgent={() => setIsAgentDemoOpen(true)} />
+        <AppDownload />
         <Features />
         <TechSpecs />
         <Ecosystem />
