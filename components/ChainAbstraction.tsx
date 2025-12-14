@@ -34,7 +34,7 @@ export const ChainAbstraction: React.FC = () => {
   };
 
   return (
-    <section className="py-32 bg-black relative overflow-hidden" id="chain-abstraction">
+    <section className="py-20 md:py-32 bg-black relative overflow-hidden" id="chain-abstraction">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(235,255,0,0.03),transparent_70%)] pointer-events-none" />
       <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
@@ -42,7 +42,7 @@ export const ChainAbstraction: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10">
         
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-16 md:mb-20">
           <ScrollReveal>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-nexus-yellow/30 bg-nexus-yellow/5 text-nexus-yellow text-xs font-mono mb-6 uppercase tracking-wider">
                <Globe size={12} />
@@ -58,11 +58,11 @@ export const ChainAbstraction: React.FC = () => {
           </ScrollReveal>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
            
            {/* Interactive Visualization */}
-           <ScrollReveal delay={100} className="relative h-[500px] flex items-center justify-center">
-              <div className="relative w-full max-w-[500px] aspect-square">
+           <ScrollReveal delay={100} className="relative h-[350px] md:h-[500px] flex items-center justify-center">
+              <div className="relative w-full max-w-[350px] md:max-w-[500px] aspect-square">
                  
                  {/* Orbit Rings */}
                  <div className="absolute inset-0 rounded-full border border-white/5 animate-[spin_60s_linear_infinite]" />
@@ -70,19 +70,19 @@ export const ChainAbstraction: React.FC = () => {
                  
                  {/* Central Node (Universal Address) */}
                  <div className={`
-                    absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full 
+                    absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 md:w-32 md:h-32 rounded-full 
                     bg-black border-2 flex flex-col items-center justify-center z-20 transition-all duration-500
                     ${activeStep === 1 ? 'border-nexus-yellow shadow-[0_0_50px_rgba(235,255,0,0.3)] scale-110' : 'border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.05)]'}
                     ${activeStep === 4 ? 'border-green-500 shadow-[0_0_50px_rgba(16,185,129,0.3)]' : ''}
                  `}>
-                    <div className="relative">
+                    <div className="relative transform scale-75 md:scale-100">
                        {activeStep === 0 && <Key className="text-white w-8 h-8" />}
                        {activeStep === 1 && <Lock className="text-nexus-yellow w-8 h-8 animate-pulse" />}
                        {activeStep === 2 && <Cpu className="text-blue-400 w-8 h-8 animate-spin-slow" />}
                        {activeStep === 3 && <Zap className="text-orange-400 w-8 h-8 animate-pulse" />}
                        {activeStep === 4 && <CheckCircle2 className="text-green-500 w-8 h-8" />}
                     </div>
-                    <div className="mt-2 text-[10px] font-mono text-neutral-400 uppercase tracking-widest">
+                    <div className="mt-2 text-[8px] md:text-[10px] font-mono text-neutral-400 uppercase tracking-widest">
                        {activeStep === 0 && "UA Idle"}
                        {activeStep === 1 && "Signing"}
                        {activeStep === 2 && "Solving"}
@@ -105,7 +105,7 @@ export const ChainAbstraction: React.FC = () => {
                        <div 
                           key={chain.id}
                           className={`
-                            absolute w-12 h-12 rounded-full bg-neutral-900 border flex items-center justify-center z-10 transition-all duration-700
+                            absolute w-10 h-10 md:w-12 md:h-12 rounded-full bg-neutral-900 border flex items-center justify-center z-10 transition-all duration-700
                             ${isActive ? 'border-white scale-125 shadow-[0_0_20px_rgba(255,255,255,0.2)]' : 'border-white/10 text-neutral-600'}
                           `}
                           style={{ 
@@ -114,14 +114,14 @@ export const ChainAbstraction: React.FC = () => {
                              transform: `translate(-50%, -50%) ${isActive ? 'scale(1.2)' : 'scale(1)'}` 
                           }}
                        >
-                          <div className={`w-3 h-3 rounded-full`} style={{ backgroundColor: chain.color }} />
+                          <div className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full`} style={{ backgroundColor: chain.color }} />
                           
                           {/* Connection Beam */}
                           {isActive && (
-                             <div className="absolute top-1/2 left-1/2 w-[160px] h-[2px] bg-gradient-to-r from-transparent via-white to-transparent origin-left -z-10 animate-beam-shoot"
+                             <div className="absolute top-1/2 left-1/2 h-[2px] bg-gradient-to-r from-transparent via-white to-transparent origin-left -z-10 animate-beam-shoot"
                                   style={{ 
                                      transform: `rotate(${chain.angle + 180}deg)`,
-                                     width: '180px' // Approximate radius distance in pixels relative to container
+                                     width: '140%' // Approximate radius coverage
                                   }} 
                              />
                           )}
@@ -132,18 +132,18 @@ export const ChainAbstraction: React.FC = () => {
            </ScrollReveal>
 
            {/* Controls & Features */}
-           <div className="flex flex-col gap-8">
+           <div className="flex flex-col gap-6 md:gap-8">
               <ScrollReveal delay={200}>
-                 <div className="bg-neutral-900/30 border border-white/10 rounded-2xl p-8 backdrop-blur-sm relative overflow-hidden">
+                 <div className="bg-neutral-900/30 border border-white/10 rounded-2xl p-6 md:p-8 backdrop-blur-sm relative overflow-hidden">
                     <div className="absolute top-0 right-0 p-4 opacity-10">
                        <RefreshCw size={100} />
                     </div>
                     
-                    <h3 className="text-2xl font-bold text-white mb-6">Intent Execution Demo</h3>
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-6">Intent Execution Demo</h3>
                     
-                    <div className="bg-black/50 border border-white/10 rounded-xl p-4 mb-6 font-mono text-sm text-neutral-300 flex items-center justify-between">
-                       <span>{intent}</span>
-                       <span className="text-nexus-yellow text-xs border border-nexus-yellow/20 px-2 py-1 rounded bg-nexus-yellow/5">
+                    <div className="bg-black/50 border border-white/10 rounded-xl p-4 mb-6 font-mono text-xs md:text-sm text-neutral-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
+                       <span className="break-all">{intent}</span>
+                       <span className="text-nexus-yellow text-[10px] border border-nexus-yellow/20 px-2 py-1 rounded bg-nexus-yellow/5 shrink-0">
                           Cross-Chain
                        </span>
                     </div>
@@ -184,7 +184,7 @@ export const ChainAbstraction: React.FC = () => {
                  </div>
               </ScrollReveal>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                  <ScrollReveal delay={300}>
                     <div className="p-4 rounded-xl bg-white/5 border border-white/5 hover:border-nexus-yellow/30 transition-colors">
                        <ShieldCheck className="text-nexus-yellow mb-2" size={24} />
@@ -205,9 +205,9 @@ export const ChainAbstraction: React.FC = () => {
         </div>
 
         {/* New Section: Solver Network Deep Dive */}
-        <div className="mt-32 border-t border-white/5 pt-24">
+        <div className="mt-20 md:mt-32 border-t border-white/5 pt-16 md:pt-24">
             <ScrollReveal>
-                <div className="text-center mb-16">
+                <div className="text-center mb-12 md:mb-16">
                     <span className="text-nexus-yellow font-mono text-xs uppercase tracking-widest mb-2 block">Execution Layer</span>
                     <h3 className="text-3xl md:text-5xl font-bold text-white mb-6">
                         The <span className="text-blue-500">Solver Network</span>
@@ -218,10 +218,10 @@ export const ChainAbstraction: React.FC = () => {
                 </div>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                 {/* Card 1: Dutch Auction */}
                 <ScrollReveal delay={0} className="h-full">
-                   <div className="bg-neutral-900/30 border border-white/10 rounded-2xl p-8 hover:border-blue-500/30 transition-all h-full group">
+                   <div className="bg-neutral-900/30 border border-white/10 rounded-2xl p-6 md:p-8 hover:border-blue-500/30 transition-all h-full group">
                         <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500 mb-6 group-hover:scale-110 transition-transform">
                             <Timer size={24} />
                         </div>
@@ -250,7 +250,7 @@ export const ChainAbstraction: React.FC = () => {
 
                 {/* Card 2: Liquidity Sourcing */}
                 <ScrollReveal delay={100} className="h-full">
-                    <div className="bg-neutral-900/30 border border-white/10 rounded-2xl p-8 hover:border-nexus-yellow/30 transition-all h-full group">
+                    <div className="bg-neutral-900/30 border border-white/10 rounded-2xl p-6 md:p-8 hover:border-nexus-yellow/30 transition-all h-full group">
                         <div className="w-12 h-12 rounded-lg bg-nexus-yellow/10 flex items-center justify-center text-nexus-yellow mb-6 group-hover:scale-110 transition-transform">
                              <Coins size={24} />
                         </div>
@@ -277,7 +277,7 @@ export const ChainAbstraction: React.FC = () => {
 
                 {/* Card 3: Settlement */}
                 <ScrollReveal delay={200} className="h-full">
-                    <div className="bg-neutral-900/30 border border-white/10 rounded-2xl p-8 hover:border-green-500/30 transition-all h-full group">
+                    <div className="bg-neutral-900/30 border border-white/10 rounded-2xl p-6 md:p-8 hover:border-green-500/30 transition-all h-full group">
                         <div className="w-12 h-12 rounded-lg bg-green-500/10 flex items-center justify-center text-green-500 mb-6 group-hover:scale-110 transition-transform">
                              <BarChart3 size={24} />
                         </div>

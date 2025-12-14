@@ -21,7 +21,7 @@ const Tooltip: React.FC<{ text: string; children: React.ReactNode; position?: 't
   return (
     <div className={`group relative flex items-center justify-center ${className}`}>
       {children}
-      <div className={`absolute ${positions[position]} px-3 py-1.5 bg-neutral-900 border border-white/20 text-neutral-300 text-[10px] rounded shadow-[0_4px_20px_rgba(0,0,0,0.5)] opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-[60] backdrop-blur-md`}>
+      <div className={`absolute ${positions[position]} px-3 py-1.5 bg-neutral-900 border border-white/20 text-neutral-300 text-[10px] rounded shadow-[0_4px_20px_rgba(0,0,0,0.5)] opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-[60] backdrop-blur-md hidden md:block`}>
         {text}
       </div>
     </div>
@@ -67,15 +67,15 @@ export const ExchangeSection: React.FC = () => {
   const themeBorder = isDarkPool ? 'border-indigo-500/30' : 'border-emerald-500/30';
 
   return (
-    <section className="py-24 bg-black relative border-t border-white/5 overflow-hidden" id="exchange">
+    <section className="py-20 md:py-32 bg-black relative border-t border-white/5 overflow-hidden" id="exchange">
        {/* Background Glow */}
-       <div className={`absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[150px] opacity-10 transition-colors duration-700 pointer-events-none ${isDarkPool ? 'bg-indigo-600' : 'bg-emerald-600'}`} />
+       <div className={`absolute top-1/2 right-0 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] rounded-full blur-[100px] md:blur-[150px] opacity-10 transition-colors duration-700 pointer-events-none ${isDarkPool ? 'bg-indigo-600' : 'bg-emerald-600'}`} />
 
        <div className="container mx-auto px-6 relative z-10">
-          <div className="flex flex-col lg:flex-row gap-16 items-center mb-24">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center mb-16 md:mb-24">
              
              {/* Text Content */}
-             <div className="flex-1">
+             <div className="flex-1 w-full">
                 <ScrollReveal>
                    <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full border ${themeBorder} ${isDarkPool ? 'bg-indigo-500/10' : 'bg-emerald-500/10'} ${themeText} text-xs font-mono mb-8 uppercase tracking-wider transition-all duration-500`}>
                       {isDarkPool ? <Lock size={12} /> : <Zap size={12} />}
@@ -90,7 +90,7 @@ export const ExchangeSection: React.FC = () => {
                       )}
                    </h2>
 
-                   <p className="text-neutral-400 text-lg mb-8 leading-relaxed max-w-xl min-h-[96px]">
+                   <p className="text-neutral-400 text-base md:text-lg mb-8 leading-relaxed max-w-xl min-h-[auto] md:min-h-[96px]">
                       {isDarkPool 
                         ? "Execute large block orders without slippage or information leakage. Our ZK-Dark Pool encrypts order size and direction using ZK-SNARKs, revealing details only to TEE-enclaves upon execution. Perfect for whales and institutions requiring absolute privacy."
                         : "The world's fastest on-chain Central Limit Order Book (CLOB). Built on the Narwhal DAG for sub-10ms latency and 160k TPS. Experience CEX-level performance with the security of self-custody."}
@@ -141,7 +141,7 @@ export const ExchangeSection: React.FC = () => {
              </div>
 
              {/* UI Simulation */}
-             <div className="flex-1 w-full max-w-lg">
+             <div className="flex-1 w-full max-w-lg hidden md:block">
                 <ScrollReveal delay={200} animation="scale-in">
                    <div className={`rounded-xl border ${themeBorder} bg-[#050505] overflow-hidden transition-colors duration-500 shadow-2xl`}>
                       {/* Terminal Header */}
@@ -281,9 +281,9 @@ export const ExchangeSection: React.FC = () => {
           </div>
 
           {/* New Privacy Architecture Section */}
-          <div className="border-t border-white/5 pt-20">
+          <div className="border-t border-white/5 pt-16 md:pt-20">
             <ScrollReveal>
-              <div className="text-center mb-16">
+              <div className="text-center mb-12 md:mb-16">
                 <span className="text-indigo-400 font-mono text-xs uppercase tracking-widest mb-2 block">Under the Hood</span>
                 <h3 className="text-3xl md:text-5xl font-bold text-white mb-6">
                   Cryptographic <span className="text-indigo-500">Invisibility Cloak</span>
@@ -294,7 +294,7 @@ export const ExchangeSection: React.FC = () => {
               </div>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                {/* ZK Column */}
                <ScrollReveal delay={0}>
                  <div className="bg-neutral-900/20 border border-white/5 rounded-2xl p-8 relative overflow-hidden group hover:border-indigo-500/30 transition-all h-full">
@@ -316,7 +316,7 @@ export const ExchangeSection: React.FC = () => {
                           </li>
                        ))}
                     </ul>
-                    <div className="bg-black/50 rounded-lg p-4 font-mono text-xs text-indigo-300 border border-indigo-500/20">
+                    <div className="bg-black/50 rounded-lg p-4 font-mono text-xs text-indigo-300 border border-indigo-500/20 overflow-x-auto">
                        <span className="text-neutral-500">// Public Mempool View</span> <br/>
                        {`{ proof: "0x7f2...a9c", inputs: [HASH(price), HASH(qty)] }`}
                     </div>

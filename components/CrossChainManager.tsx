@@ -150,7 +150,7 @@ export const CrossChainManager: React.FC = () => {
   };
 
   return (
-    <section className="py-24 bg-black relative border-t border-white/5" id="cross-chain-manager">
+    <section className="py-20 md:py-32 bg-black relative border-t border-white/5" id="cross-chain-manager">
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
           <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -160,7 +160,7 @@ export const CrossChainManager: React.FC = () => {
                 Intent <span className="text-neutral-500">Manager</span>
               </h2>
             </div>
-            <div className="flex gap-2 bg-neutral-900 p-1 rounded-lg border border-white/10">
+            <div className="flex gap-2 bg-neutral-900 p-1 rounded-lg border border-white/10 self-start md:self-auto">
                <button 
                   onClick={() => setActiveTab('active')}
                   className={`px-4 py-2 text-sm font-bold rounded-md transition-all flex items-center gap-2 ${activeTab === 'active' ? 'bg-white/10 text-white' : 'text-neutral-500 hover:text-white'}`}
@@ -186,7 +186,7 @@ export const CrossChainManager: React.FC = () => {
           
           {/* Left Column: Operation List */}
           <ScrollReveal delay={100} className="lg:col-span-1 h-full">
-            <div className="bg-neutral-900/30 border border-white/10 rounded-2xl overflow-hidden h-full flex flex-col min-h-[400px]">
+            <div className="bg-neutral-900/30 border border-white/10 rounded-2xl overflow-hidden h-full flex flex-col min-h-[350px]">
                <div className="p-4 border-b border-white/5 bg-white/5 flex justify-between items-center">
                   <span className="text-xs font-bold uppercase text-neutral-400 tracking-wider">
                       {activeTab === 'active' ? 'Live Operations' : 'Past Operations'}
@@ -250,33 +250,33 @@ export const CrossChainManager: React.FC = () => {
           {/* Right Column: Visualization & Management */}
           <ScrollReveal delay={200} className="lg:col-span-2">
              {selectedOp ? (
-                 <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl overflow-hidden shadow-2xl relative h-full">
+                 <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl overflow-hidden shadow-2xl relative h-full flex flex-col">
                     
                     {/* Visual Flow Header */}
-                    <div className="p-8 border-b border-white/5 relative overflow-hidden">
+                    <div className="p-6 md:p-8 border-b border-white/5 relative overflow-hidden shrink-0">
                        {/* Background Glow */}
                        <div className={`absolute top-0 right-0 w-[300px] h-[300px] rounded-full blur-[100px] opacity-10 pointer-events-none ${
                           selectedOp.status === 'processing' ? 'bg-blue-500' :
                           selectedOp.status === 'completed' ? 'bg-green-500' : 'bg-red-500'
                        }`} />
 
-                       <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                          <div className="flex items-center gap-6 w-full md:w-auto">
+                       <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-6">
+                          <div className="flex items-center gap-4 md:gap-6 w-full md:w-auto justify-center md:justify-start">
                              {/* Source Node */}
                              <div className="flex flex-col items-center gap-2">
-                                <div className={`w-16 h-16 rounded-2xl ${getChainColor(selectedOp.sourceChain)} bg-opacity-20 border border-white/10 flex items-center justify-center relative`}>
-                                   <span className="font-bold text-xs">{selectedOp.sourceToken}</span>
-                                   <div className={`absolute -bottom-1 -right-1 w-5 h-5 rounded-full ${getChainColor(selectedOp.sourceChain)} border-2 border-black flex items-center justify-center text-[8px] font-bold`}>S</div>
+                                <div className={`w-12 h-12 md:w-16 md:h-16 rounded-2xl ${getChainColor(selectedOp.sourceChain)} bg-opacity-20 border border-white/10 flex items-center justify-center relative`}>
+                                   <span className="font-bold text-[10px] md:text-xs">{selectedOp.sourceToken}</span>
+                                   <div className={`absolute -bottom-1 -right-1 w-4 h-4 md:w-5 md:h-5 rounded-full ${getChainColor(selectedOp.sourceChain)} border-2 border-black flex items-center justify-center text-[6px] md:text-[8px] font-bold`}>S</div>
                                 </div>
-                                <span className="text-xs font-bold text-neutral-400">{selectedOp.sourceChain}</span>
+                                <span className="text-[10px] md:text-xs font-bold text-neutral-400">{selectedOp.sourceChain}</span>
                              </div>
 
                              {/* Flow Animation */}
-                             <div className="flex-1 md:w-32 flex flex-col items-center gap-1">
+                             <div className="flex-1 min-w-[80px] md:w-32 flex flex-col items-center gap-1">
                                 <div className="w-full h-1 bg-neutral-800 rounded-full overflow-hidden relative">
                                    <div className={`absolute inset-0 bg-nexus-yellow/50 rounded-full ${selectedOp.status === 'processing' ? 'animate-shimmer' : selectedOp.status === 'completed' ? 'w-full' : 'w-1/3 bg-red-500'}`} />
                                 </div>
-                                <span className={`text-[10px] uppercase tracking-wider font-bold ${
+                                <span className={`text-[8px] md:text-[10px] uppercase tracking-wider font-bold text-center ${
                                     selectedOp.status === 'processing' ? 'text-nexus-yellow animate-pulse' :
                                     selectedOp.status === 'completed' ? 'text-green-500' : 'text-red-500'
                                 }`}>
@@ -286,11 +286,11 @@ export const CrossChainManager: React.FC = () => {
 
                              {/* Target Node */}
                              <div className="flex flex-col items-center gap-2">
-                                 <div className={`w-16 h-16 rounded-2xl ${getChainColor(selectedOp.targetChain)} bg-opacity-20 border border-white/10 flex items-center justify-center relative`}>
-                                   <span className="font-bold text-xs">{selectedOp.targetToken}</span>
-                                   <div className={`absolute -bottom-1 -right-1 w-5 h-5 rounded-full ${getChainColor(selectedOp.targetChain)} border-2 border-black flex items-center justify-center text-[8px] font-bold`}>D</div>
+                                 <div className={`w-12 h-12 md:w-16 md:h-16 rounded-2xl ${getChainColor(selectedOp.targetChain)} bg-opacity-20 border border-white/10 flex items-center justify-center relative`}>
+                                   <span className="font-bold text-[10px] md:text-xs">{selectedOp.targetToken}</span>
+                                   <div className={`absolute -bottom-1 -right-1 w-4 h-4 md:w-5 md:h-5 rounded-full ${getChainColor(selectedOp.targetChain)} border-2 border-black flex items-center justify-center text-[6px] md:text-[8px] font-bold`}>D</div>
                                 </div>
-                                <span className="text-xs font-bold text-neutral-400">{selectedOp.targetChain}</span>
+                                <span className="text-[10px] md:text-xs font-bold text-neutral-400">{selectedOp.targetChain}</span>
                              </div>
                           </div>
 
@@ -316,7 +316,7 @@ export const CrossChainManager: React.FC = () => {
                     </div>
 
                     {/* Steps Timeline */}
-                    <div className="p-8 bg-neutral-900/20 min-h-[300px]">
+                    <div className="p-6 md:p-8 bg-neutral-900/20 min-h-[300px] flex-1">
                        <h3 className="text-sm font-bold text-white mb-6 flex items-center gap-2">
                           <Settings size={16} className="text-neutral-500" />
                           Execution Flow
@@ -364,16 +364,16 @@ export const CrossChainManager: React.FC = () => {
                     </div>
 
                     {/* Meta Footer */}
-                    <div className="p-4 border-t border-white/5 bg-black/40 flex justify-between items-center text-[10px] text-neutral-500">
-                        <div className="flex gap-4">
+                    <div className="p-4 border-t border-white/5 bg-black/40 flex flex-col sm:flex-row justify-between items-start sm:items-center text-[10px] text-neutral-500 gap-2 sm:gap-0">
+                        <div className="flex flex-wrap gap-4">
                            <span className="flex items-center gap-1"><ShieldCheck size={12} /> Validated by Aeterna L3</span>
                            {selectedOp.solver && <span className="flex items-center gap-1"><Zap size={12} /> Solver: {selectedOp.solver}</span>}
                         </div>
-                        <div>ID: {selectedOp.id}</div>
+                        <div className="font-mono">ID: {selectedOp.id}</div>
                     </div>
                  </div>
              ) : (
-                 <div className="h-full bg-[#0A0A0A] border border-white/10 rounded-2xl flex flex-col items-center justify-center text-neutral-500">
+                 <div className="h-full bg-[#0A0A0A] border border-white/10 rounded-2xl flex flex-col items-center justify-center text-neutral-500 p-10">
                      <Activity size={48} className="mb-4 opacity-20" />
                      <p>Select an operation to view details</p>
                  </div>

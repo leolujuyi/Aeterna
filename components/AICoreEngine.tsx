@@ -5,12 +5,12 @@ import { Brain, Cpu, Database, Network, Share2, Code, Workflow, Layers, FileJson
 
 export const AICoreEngine: React.FC = () => {
   return (
-    <section className="py-32 bg-black relative overflow-hidden border-t border-white/5" id="ai-core-engine">
+    <section className="py-20 md:py-32 bg-black relative overflow-hidden border-t border-white/5" id="ai-core-engine">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(147,51,234,0.05),transparent_50%)] pointer-events-none" />
       
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
-          <div className="text-center mb-20">
+          <div className="text-center mb-16 md:mb-20">
              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-xs font-mono mb-6 uppercase tracking-wider">
                <Brain size={12} />
                <span>Layer 2: AI Core Engine</span>
@@ -26,7 +26,7 @@ export const AICoreEngine: React.FC = () => {
         </ScrollReveal>
 
         {/* Core Modules Grid (Summary) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 md:mb-24">
            {/* Card 1: Orchestrator */}
            <ScrollReveal delay={0}>
               <SpotlightCard className="h-full p-8 bg-neutral-900/20" spotlightColor="rgba(168, 85, 247, 0.2)">
@@ -109,11 +109,11 @@ export const AICoreEngine: React.FC = () => {
         </div>
 
         {/* Deep Dive Sections - 2x2 Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 md:mb-24">
             
             {/* Orchestrator Detail */}
             <ScrollReveal>
-                <div className="bg-neutral-900/30 border border-white/10 rounded-2xl p-8 relative overflow-hidden h-full group hover:border-purple-500/30 transition-all">
+                <div className="bg-neutral-900/30 border border-white/10 rounded-2xl p-6 md:p-8 relative overflow-hidden h-full group hover:border-purple-500/30 transition-all">
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400">
                            <Workflow size={20} />
@@ -156,7 +156,7 @@ export const AICoreEngine: React.FC = () => {
 
             {/* Ritual Detail */}
             <ScrollReveal delay={100}>
-                <div className="bg-neutral-900/30 border border-white/10 rounded-2xl p-8 relative overflow-hidden h-full group hover:border-purple-500/30 transition-all">
+                <div className="bg-neutral-900/30 border border-white/10 rounded-2xl p-6 md:p-8 relative overflow-hidden h-full group hover:border-purple-500/30 transition-all">
                     <div className="flex items-center gap-4 mb-6">
                          <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400">
                             <Cpu size={20} />
@@ -185,7 +185,7 @@ export const AICoreEngine: React.FC = () => {
 
             {/* Bittensor Detail */}
             <ScrollReveal delay={200}>
-                 <div className="bg-neutral-900/30 border border-white/10 rounded-2xl p-8 relative overflow-hidden h-full group hover:border-purple-500/30 transition-all">
+                 <div className="bg-neutral-900/30 border border-white/10 rounded-2xl p-6 md:p-8 relative overflow-hidden h-full group hover:border-purple-500/30 transition-all">
                     <div className="flex items-center gap-4 mb-6">
                          <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400">
                              <Network size={20} />
@@ -218,7 +218,7 @@ export const AICoreEngine: React.FC = () => {
 
             {/* Walrus Detail */}
             <ScrollReveal delay={300}>
-                <div className="bg-neutral-900/30 border border-white/10 rounded-2xl p-8 relative overflow-hidden h-full group hover:border-purple-500/30 transition-all">
+                <div className="bg-neutral-900/30 border border-white/10 rounded-2xl p-6 md:p-8 relative overflow-hidden h-full group hover:border-purple-500/30 transition-all">
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400">
                             <Database size={20} />
@@ -257,39 +257,39 @@ export const AICoreEngine: React.FC = () => {
         {/* Protocols Table */}
         <ScrollReveal>
              <div className="rounded-2xl border border-white/10 bg-neutral-900/30 overflow-hidden">
-                <div className="px-8 py-6 border-b border-white/10 flex items-center gap-3 bg-white/5">
+                <div className="px-6 md:px-8 py-6 border-b border-white/10 flex items-center gap-3 bg-white/5">
                     <Code className="text-purple-400" size={20} />
                     <h3 className="text-lg font-bold text-white">AI Agent Protocols</h3>
                 </div>
                 <div className="overflow-x-auto">
-                    <table className="w-full text-left text-sm">
+                    <table className="w-full text-left text-sm whitespace-nowrap md:whitespace-normal">
                         <thead className="bg-white/5 text-neutral-400 font-mono uppercase text-xs">
                             <tr>
-                                <th className="px-8 py-4">Protocol</th>
-                                <th className="px-8 py-4">Function</th>
-                                <th className="px-8 py-4">Integration Module</th>
+                                <th className="px-6 md:px-8 py-4">Protocol</th>
+                                <th className="px-6 md:px-8 py-4">Function</th>
+                                <th className="px-6 md:px-8 py-4">Integration Module</th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-white/5 text-neutral-300">
                             <tr className="hover:bg-white/5 transition-colors">
-                                <td className="px-8 py-4 font-bold text-white">ERC-8004</td>
-                                <td className="px-8 py-4">AI Agent Identity & Trust Registration</td>
-                                <td className="px-8 py-4 font-mono text-purple-400">x/agent</td>
+                                <td className="px-6 md:px-8 py-4 font-bold text-white">ERC-8004</td>
+                                <td className="px-6 md:px-8 py-4">AI Agent Identity & Trust Registration</td>
+                                <td className="px-6 md:px-8 py-4 font-mono text-purple-400">x/agent</td>
                             </tr>
                             <tr className="hover:bg-white/5 transition-colors">
-                                <td className="px-8 py-4 font-bold text-white">x402</td>
-                                <td className="px-8 py-4">AI Native Micropayments (HTTP 402)</td>
-                                <td className="px-8 py-4 font-mono text-purple-400">x/pay</td>
+                                <td className="px-6 md:px-8 py-4 font-bold text-white">x402</td>
+                                <td className="px-6 md:px-8 py-4">AI Native Micropayments (HTTP 402)</td>
+                                <td className="px-6 md:px-8 py-4 font-mono text-purple-400">x/pay</td>
                             </tr>
                             <tr className="hover:bg-white/5 transition-colors">
-                                <td className="px-8 py-4 font-bold text-white">Google A2A</td>
-                                <td className="px-8 py-4">Agent-to-Agent Communication</td>
-                                <td className="px-8 py-4 font-mono text-purple-400">Hooks + IBC</td>
+                                <td className="px-6 md:px-8 py-4 font-bold text-white">Google A2A</td>
+                                <td className="px-6 md:px-8 py-4">Agent-to-Agent Communication</td>
+                                <td className="px-6 md:px-8 py-4 font-mono text-purple-400">Hooks + IBC</td>
                             </tr>
                             <tr className="hover:bg-white/5 transition-colors">
-                                <td className="px-8 py-4 font-bold text-white">Google AP2</td>
-                                <td className="px-8 py-4">Payment Authorization Framework</td>
-                                <td className="px-8 py-4 font-mono text-purple-400">x/ap2pay</td>
+                                <td className="px-6 md:px-8 py-4 font-bold text-white">Google AP2</td>
+                                <td className="px-6 md:px-8 py-4">Payment Authorization Framework</td>
+                                <td className="px-6 md:px-8 py-4 font-mono text-purple-400">x/ap2pay</td>
                             </tr>
                         </tbody>
                     </table>

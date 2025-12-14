@@ -101,7 +101,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAgent }) => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-black">
+    <section className="relative min-h-[100dvh] flex items-center justify-center pt-24 pb-12 overflow-hidden bg-black">
       
       {/* Deep Background - Slower Parallax */}
       <div 
@@ -109,8 +109,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAgent }) => {
         style={{ transform: `translateY(${scrollY * 0.2}px)` }}
       >
         <div className="absolute inset-0 grid-bg" />
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-nexus-yellow/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/3" />
+        <div className="absolute top-0 right-0 w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-nexus-yellow/5 rounded-full blur-[80px] md:blur-[120px] -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute bottom-0 left-0 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-blue-500/5 rounded-full blur-[60px] md:blur-[100px] translate-y-1/2 -translate-x-1/3" />
       </div>
 
       {/* Particle Background - Medium Parallax */}
@@ -121,17 +121,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAgent }) => {
         <ParticleBackground />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10 text-center">
+      <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
         <ScrollReveal delay={100} animation="scale-in">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-nexus-yellow/30 bg-nexus-yellow/5 backdrop-blur-sm mb-12 cursor-default hover:bg-nexus-yellow/10 transition-colors shadow-[0_0_15px_rgba(235,255,0,0.1)] group">
-            <Box size={14} className="text-nexus-yellow animate-spin-slow" />
-            <span className="text-xs font-mono uppercase tracking-widest text-nexus-yellow group-hover:text-white transition-colors">Narwhal + Bullshark Consensus Live</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-1.5 rounded-full border border-nexus-yellow/30 bg-nexus-yellow/5 backdrop-blur-sm mb-8 md:mb-12 cursor-default hover:bg-nexus-yellow/10 transition-colors shadow-[0_0_15px_rgba(235,255,0,0.1)] group max-w-full">
+            <Box size={14} className="text-nexus-yellow animate-spin-slow shrink-0" />
+            <span className="text-[10px] md:text-xs font-mono uppercase tracking-widest text-nexus-yellow group-hover:text-white transition-colors truncate">Narwhal + Bullshark Consensus Live</span>
           </div>
         </ScrollReveal>
 
         {/* Main Title with Pronounced Scale Animation */}
-        <div className="relative mb-10 opacity-0 animate-hero-title [animation-fill-mode:forwards] [animation-delay:200ms]">
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-[0.9] flex flex-col items-center">
+        <div className="relative mb-8 md:mb-10 opacity-0 animate-hero-title [animation-fill-mode:forwards] [animation-delay:200ms]">
+          <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-[0.9] flex flex-col items-center">
             {/* New Layout: CHAIN ABSTRACTION */}
             <span className="block text-white mb-2">CHAIN</span>
             <span className="block text-white">ABSTRACTION</span>
@@ -142,30 +142,30 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAgent }) => {
         </div>
 
         <ScrollReveal delay={500}>
-          <p className="text-xl md:text-2xl text-neutral-400 max-w-3xl mx-auto mb-12 font-light leading-relaxed tracking-wide">
+          <p className="text-lg md:text-2xl text-neutral-400 max-w-3xl mx-auto mb-10 md:mb-12 font-light leading-relaxed tracking-wide px-4">
             Control 15+ chains with <span className="text-white font-bold">one Universal Address</span>.
-            Empower AI Agents with <span className="text-white font-bold">Autonomous Execution</span> and <span className="text-white font-bold">Trustless Payments</span>.
+            Empower AI Agents with <span className="text-white font-bold">Autonomous Execution</span>.
           </p>
         </ScrollReveal>
 
         <ScrollReveal delay={700}>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 w-full max-w-md mx-auto sm:max-w-none px-4">
             <Button 
                 variant="primary" 
-                className="h-14 px-12 text-base border-transparent hover:scale-105 bg-nexus-yellow text-black border-nexus-yellow hover:bg-white hover:text-black hover:border-white shadow-[0_0_20px_rgba(235,255,0,0.4)]"
+                className="w-full sm:w-auto h-12 md:h-14 px-8 md:px-12 text-sm md:text-base border-transparent hover:scale-105 bg-nexus-yellow text-black border-nexus-yellow hover:bg-white hover:text-black hover:border-white shadow-[0_0_20px_rgba(235,255,0,0.4)]"
                 onClick={onOpenAgent}
             >
                <Bot className="mr-2" size={20} /> Launch AI Agent
             </Button>
-            <Button variant="outline" className="h-14 px-12 text-base group bg-black/50 backdrop-blur-sm border-white/20 hover:border-nexus-yellow hover:text-nexus-yellow">
+            <Button variant="outline" className="w-full sm:w-auto h-12 md:h-14 px-8 md:px-12 text-sm md:text-base group bg-black/50 backdrop-blur-sm border-white/20 hover:border-nexus-yellow hover:text-nexus-yellow">
               Read Whitepaper <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
         </ScrollReveal>
 
         {/* Floating Stats */}
-        <div className="mt-32 border-t border-white/10 pt-16 bg-gradient-to-b from-transparent to-black/80 backdrop-blur-sm">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+        <div className="mt-20 md:mt-32 border-t border-white/10 pt-12 md:pt-16 bg-gradient-to-b from-transparent to-black/80 backdrop-blur-sm">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {[
               { label: 'TPS (Narwhal)', value: '160,000+' },
               { label: 'Finality', value: '<100ms' },
@@ -174,12 +174,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAgent }) => {
             ].map((stat, i) => (
               <ScrollReveal key={i} delay={900 + (i * 100)}>
                 <div className="text-center group cursor-default relative">
-                  <div className="text-4xl md:text-5xl font-bold font-mono mb-2 text-white group-hover:text-nexus-yellow transition-colors duration-300 ease-out">
+                  <div className="text-3xl sm:text-4xl md:text-5xl font-bold font-mono mb-2 text-white group-hover:text-nexus-yellow transition-colors duration-300 ease-out">
                     <CountUp end={stat.value} />
                   </div>
-                  <div className="text-xs uppercase tracking-widest text-neutral-500 font-medium group-hover:text-white transition-colors">{stat.label}</div>
+                  <div className="text-[10px] md:text-xs uppercase tracking-widest text-neutral-500 font-medium group-hover:text-white transition-colors">{stat.label}</div>
                   {/* Subtle dot decoration */}
-                  <div className="absolute -left-4 top-1/2 w-1 h-1 bg-neutral-800 rounded-full group-hover:bg-nexus-yellow transition-colors" />
+                  <div className="hidden md:block absolute -left-4 top-1/2 w-1 h-1 bg-neutral-800 rounded-full group-hover:bg-nexus-yellow transition-colors" />
                 </div>
               </ScrollReveal>
             ))}

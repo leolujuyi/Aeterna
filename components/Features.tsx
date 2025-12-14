@@ -47,9 +47,9 @@ const Card: React.FC<{
 
 export const Features: React.FC = () => {
   return (
-    <section className="py-32 bg-black relative" id="architecture">
+    <section className="py-20 md:py-32 bg-black relative" id="architecture">
       <div className="container mx-auto px-6">
-        <div className="mb-24 md:flex justify-between items-end">
+        <div className="mb-16 md:mb-24 md:flex justify-between items-end">
           <ScrollReveal>
             <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tighter leading-tight">
               The 4-Layer <br/>
@@ -57,8 +57,8 @@ export const Features: React.FC = () => {
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={200}>
-            <p className="text-neutral-400 max-w-sm text-lg md:text-right font-light">
-              Decoupled, Modular, and Sovereign. <br/>
+            <p className="text-neutral-400 max-w-sm text-lg md:text-right font-light mt-4 md:mt-0">
+              Decoupled, Modular, and Sovereign. <br className="hidden md:inline" />
               Built for the next generation of AI Agents.
             </p>
           </ScrollReveal>
