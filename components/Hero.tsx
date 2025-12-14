@@ -103,7 +103,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAgent }) => {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-black">
       
-      {/* Parallax Particle Background */}
+      {/* Deep Background - Slower Parallax */}
+      <div 
+        className="absolute inset-0 w-full h-full pointer-events-none opacity-20 will-change-transform"
+        style={{ transform: `translateY(${scrollY * 0.2}px)` }}
+      >
+        <div className="absolute inset-0 grid-bg" />
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-nexus-yellow/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/3" />
+      </div>
+
+      {/* Particle Background - Medium Parallax */}
       <div 
         className="absolute inset-0 w-full h-full pointer-events-none will-change-transform"
         style={{ transform: `translateY(${scrollY * 0.4}px)` }}
@@ -119,7 +129,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAgent }) => {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal animation="hero-pop" delay={200} className="relative mb-10">
+        {/* Main Title with Pronounced Scale Animation */}
+        <div className="relative mb-10 opacity-0 animate-hero-title [animation-fill-mode:forwards] [animation-delay:200ms]">
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-[0.9] flex flex-col items-center">
             {/* New Layout: CHAIN ABSTRACTION */}
             <span className="block text-white mb-2">CHAIN</span>
@@ -128,7 +139,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAgent }) => {
             {/* Decorative underline */}
             <span className="w-1/2 h-1 bg-nexus-yellow mt-4 transform scale-x-0 animate-[scaleIn_0.8s_ease-out_1.2s_forwards] origin-center shadow-[0_0_20px_#EBFF00]"></span>
           </h1>
-        </ScrollReveal>
+        </div>
 
         <ScrollReveal delay={500}>
           <p className="text-xl md:text-2xl text-neutral-400 max-w-3xl mx-auto mb-12 font-light leading-relaxed tracking-wide">

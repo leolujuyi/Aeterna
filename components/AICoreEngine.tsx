@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollReveal } from './ScrollReveal';
 import { SpotlightCard } from './SpotlightCard';
-import { Brain, Cpu, Database, Network, Share2, Code, Workflow } from 'lucide-react';
+import { Brain, Cpu, Database, Network, Share2, Code, Workflow, Layers, FileJson, Zap } from 'lucide-react';
 
 export const AICoreEngine: React.FC = () => {
   return (
@@ -25,7 +25,7 @@ export const AICoreEngine: React.FC = () => {
           </div>
         </ScrollReveal>
 
-        {/* Core Modules Grid */}
+        {/* Core Modules Grid (Summary) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
            {/* Card 1: Orchestrator */}
            <ScrollReveal delay={0}>
@@ -108,62 +108,146 @@ export const AICoreEngine: React.FC = () => {
            </ScrollReveal>
         </div>
 
-        {/* Deep Dive Sections */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24">
+        {/* Deep Dive Sections - 2x2 Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
             
-            {/* Ritual Detail */}
+            {/* Orchestrator Detail */}
             <ScrollReveal>
-                <div className="bg-neutral-900/30 border border-white/10 rounded-2xl p-8 relative overflow-hidden h-full">
+                <div className="bg-neutral-900/30 border border-white/10 rounded-2xl p-8 relative overflow-hidden h-full group hover:border-purple-500/30 transition-all">
                     <div className="flex items-center gap-4 mb-6">
-                        <Cpu className="text-purple-400" size={32} />
+                        <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400">
+                           <Workflow size={20} />
+                        </div>
+                        <h3 className="text-2xl font-bold text-white">Orchestrator</h3>
+                    </div>
+                    <p className="text-neutral-400 mb-6">
+                        The autonomous supervisor running on-chain. It decomposes high-level user intents into executable low-level WASM/EVM transactions using the ReAct pattern.
+                    </p>
+                    <div className="space-y-4">
+                         <div className="p-4 bg-black/40 rounded border border-white/5">
+                            <div className="flex justify-between mb-2 text-sm font-bold text-white">
+                                <span>ReAct Loop Status</span>
+                                <span className="text-purple-400 animate-pulse">Active</span>
+                            </div>
+                            <div className="flex gap-1 h-2 bg-neutral-800 rounded-full overflow-hidden">
+                                <div className="w-1/3 bg-purple-500" />
+                                <div className="w-1/3 bg-blue-500" />
+                                <div className="w-1/3 bg-green-500" />
+                            </div>
+                            <div className="flex justify-between mt-2 text-[10px] text-neutral-500 uppercase tracking-wider font-mono">
+                                <span>Reason</span>
+                                <span>Act</span>
+                                <span>Observe</span>
+                            </div>
+                         </div>
+                         <div className="grid grid-cols-2 gap-4">
+                            <div className="p-3 bg-black/40 rounded border border-white/5">
+                                <div className="text-xs text-neutral-500 uppercase mb-1">Runtime</div>
+                                <div className="font-bold text-white text-sm flex items-center gap-2"><Layers size={12}/> CosmWasm</div>
+                            </div>
+                             <div className="p-3 bg-black/40 rounded border border-white/5">
+                                <div className="text-xs text-neutral-500 uppercase mb-1">State</div>
+                                <div className="font-bold text-white text-sm flex items-center gap-2"><Database size={12}/> Persistent</div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </ScrollReveal>
+
+            {/* Ritual Detail */}
+            <ScrollReveal delay={100}>
+                <div className="bg-neutral-900/30 border border-white/10 rounded-2xl p-8 relative overflow-hidden h-full group hover:border-purple-500/30 transition-all">
+                    <div className="flex items-center gap-4 mb-6">
+                         <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400">
+                            <Cpu size={20} />
+                         </div>
                         <h3 className="text-2xl font-bold text-white">Ritual Inference</h3>
                     </div>
                     <p className="text-neutral-400 mb-6">
-                        The preferred solution for decentralized AI inference, enabling smart contracts to natively access advanced models.
+                        The preferred solution for decentralized AI inference, enabling smart contracts to natively access advanced models via Infernet nodes.
                     </p>
                     <div className="space-y-4">
                         <div className="flex justify-between items-center p-3 bg-black/40 rounded border border-white/5">
-                            <span className="text-sm text-neutral-400">Network</span>
-                            <span className="text-sm font-bold text-white">Infernet Nodes</span>
+                            <span className="text-sm text-neutral-400">Network Nodes</span>
+                            <span className="text-sm font-bold text-white flex items-center gap-2"><Zap size={12} className="text-yellow-500"/> Infernet</span>
                         </div>
                         <div className="flex justify-between items-center p-3 bg-black/40 rounded border border-white/5">
-                            <span className="text-sm text-neutral-400">Proofs</span>
+                            <span className="text-sm text-neutral-400">Verifiability</span>
                             <span className="text-sm font-bold text-white">ZK / TEE / Optimistic</span>
                         </div>
                         <div className="flex justify-between items-center p-3 bg-black/40 rounded border border-white/5">
-                            <span className="text-sm text-neutral-400">Models</span>
-                            <span className="text-sm font-bold text-white">Llama 3, Gemini 3, GPT-4o</span>
+                            <span className="text-sm text-neutral-400">Supported Models</span>
+                            <span className="text-sm font-bold text-white">Llama 3, Gemini, GPT-4</span>
                         </div>
                     </div>
                 </div>
             </ScrollReveal>
 
             {/* Bittensor Detail */}
-            <ScrollReveal delay={100}>
-                 <div className="bg-neutral-900/30 border border-white/10 rounded-2xl p-8 relative overflow-hidden h-full">
+            <ScrollReveal delay={200}>
+                 <div className="bg-neutral-900/30 border border-white/10 rounded-2xl p-8 relative overflow-hidden h-full group hover:border-purple-500/30 transition-all">
                     <div className="flex items-center gap-4 mb-6">
-                        <Network className="text-purple-400" size={32} />
-                        <h3 className="text-2xl font-bold text-white">Bittensor Incentives</h3>
+                         <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400">
+                             <Network size={20} />
+                         </div>
+                        <h3 className="text-2xl font-bold text-white">Bittensor (TAO)</h3>
                     </div>
                     <p className="text-neutral-400 mb-6">
-                        Sovereign execution layer running TAO-compatible subnets to crowdsource the best intelligence.
+                        Sovereign execution layer running TAO-compatible subnets to crowdsource the best intelligence and models.
                     </p>
                     <div className="grid grid-cols-2 gap-4">
                         <div className="p-3 bg-black/40 rounded border border-white/5">
                             <div className="text-xs text-neutral-500 uppercase mb-1">Miners</div>
-                            <div className="font-bold text-white">Run Models</div>
+                            <div className="font-bold text-white text-sm">Run Models</div>
                         </div>
                         <div className="p-3 bg-black/40 rounded border border-white/5">
                             <div className="text-xs text-neutral-500 uppercase mb-1">Validators</div>
-                            <div className="font-bold text-white">Evaluate Quality</div>
+                            <div className="font-bold text-white text-sm">Rank Quality</div>
                         </div>
                         <div className="p-3 bg-black/40 rounded border border-white/5">
                             <div className="text-xs text-neutral-500 uppercase mb-1">Subnets</div>
-                            <div className="font-bold text-white">125+ Tracks</div>
+                            <div className="font-bold text-white text-sm">125+ Tracks</div>
                         </div>
                         <div className="p-3 bg-black/40 rounded border border-white/5">
                             <div className="text-xs text-neutral-500 uppercase mb-1">Emission</div>
-                            <div className="font-bold text-white">41% / 41% / 18%</div>
+                            <div className="font-bold text-white text-sm">Yuma Consensus</div>
+                        </div>
+                    </div>
+                </div>
+            </ScrollReveal>
+
+            {/* Walrus Detail */}
+            <ScrollReveal delay={300}>
+                <div className="bg-neutral-900/30 border border-white/10 rounded-2xl p-8 relative overflow-hidden h-full group hover:border-purple-500/30 transition-all">
+                    <div className="flex items-center gap-4 mb-6">
+                        <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400">
+                            <Database size={20} />
+                        </div>
+                        <h3 className="text-2xl font-bold text-white">Walrus Memory</h3>
+                    </div>
+                    <p className="text-neutral-400 mb-6">
+                        Decentralized long-term memory for Agents. Store conversation history, files, and learned strategies as verifiable blobs.
+                    </p>
+                    <div className="space-y-4">
+                        <div className="flex items-center gap-4 p-3 bg-black/40 rounded border border-white/5">
+                            <div className="p-2 bg-purple-500/10 rounded">
+                                <FileJson size={18} className="text-purple-400"/>
+                            </div>
+                            <div className="flex-1">
+                                <div className="text-sm font-bold text-white">Blob Storage</div>
+                                <div className="text-xs text-neutral-500">Erasure-coded, immutable</div>
+                            </div>
+                            <div className="text-xs font-mono text-purple-400 border border-purple-500/20 px-2 py-1 rounded">Sui-based</div>
+                        </div>
+                         <div className="flex items-center gap-4 p-3 bg-black/40 rounded border border-white/5">
+                            <div className="p-2 bg-blue-500/10 rounded">
+                                <Share2 size={18} className="text-blue-400"/>
+                            </div>
+                            <div className="flex-1">
+                                <div className="text-sm font-bold text-white">Vector Index</div>
+                                <div className="text-xs text-neutral-500">Semantic Search & RAG</div>
+                            </div>
+                            <div className="text-xs font-mono text-blue-400 border border-blue-500/20 px-2 py-1 rounded">Context</div>
                         </div>
                     </div>
                 </div>
