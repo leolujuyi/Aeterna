@@ -31,13 +31,14 @@ export const Header: React.FC = () => {
       hasMenu: true,
       subItems: [
         { name: 'Infrastructure', href: '#layer-infrastructure' },
-        { name: 'AI Engine', href: '#layer-ai' },
-        { name: 'Abstraction', href: '#layer-abstraction' },
+        { name: 'AI Engine', href: '#ai-core-engine' },
+        { name: 'Abstraction', href: '#chain-abstraction' },
         { name: 'Payment', href: '#layer-payment' },
         { name: 'Narwhal DAG', href: '#tech-consensus' },
         { name: 'Multi-VM', href: '#tech-vm' }
       ]
     },
+    { name: 'Exchange', href: '#exchange', hasMenu: false },
     { name: 'Use Cases', href: '#use-cases', hasMenu: false },
     { name: 'Docs', href: '#docs', hasMenu: false }
   ];
@@ -194,8 +195,8 @@ export const Header: React.FC = () => {
 
                 {/* Item 2 */}
                 <a 
-                  href="#layer-ai" 
-                  onClick={(e) => handleLinkClick(e, '#layer-ai')}
+                  href="#ai-core-engine" 
+                  onClick={(e) => handleLinkClick(e, '#ai-core-engine')}
                   className="group relative border-r border-b border-nexus-yellow/30 p-8 hover:bg-nexus-yellow transition-colors duration-0"
                 >
                   <div className="flex justify-between items-start">
@@ -209,8 +210,8 @@ export const Header: React.FC = () => {
 
                 {/* Item 3 */}
                 <a 
-                  href="#layer-abstraction" 
-                  onClick={(e) => handleLinkClick(e, '#layer-abstraction')}
+                  href="#chain-abstraction" 
+                  onClick={(e) => handleLinkClick(e, '#chain-abstraction')}
                   className="group relative border-r border-b border-nexus-yellow/30 p-8 hover:bg-nexus-yellow transition-colors duration-0"
                 >
                   <div className="flex justify-between items-start">

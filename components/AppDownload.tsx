@@ -12,7 +12,7 @@ const StoreButton: React.FC<{ type: 'apple' | 'google' }> = ({ type }) => (
       )}
     </div>
     <div className="text-left">
-      <div className="text-[10px] text-neutral-400 uppercase font-bold tracking-wider leading-none mb-1">Download on</div>
+      <div className="text-[10px] text-neutral-400 uppercase font-bold tracking-wider leading-none mb-1">Coming Soon</div>
       <div className="text-sm font-bold text-white leading-none">
         {type === 'apple' ? 'App Store' : 'Google Play'}
       </div>

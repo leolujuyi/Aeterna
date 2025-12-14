@@ -3,6 +3,7 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Features } from './components/Features';
 import { TechSpecs } from './components/TechSpecs';
+import { ExchangeSection } from './components/ExchangeSection';
 import { Comparison } from './components/Comparison';
 import { UseCases } from './components/UseCases';
 import { Developers } from './components/Developers';
@@ -14,6 +15,9 @@ import { AIAgentDemo } from './components/AIAgentDemo';
 import { Ecosystem } from './components/Ecosystem';
 import { CTA } from './components/CTA';
 import { AppDownload } from './components/AppDownload';
+import { ChainAbstraction } from './components/ChainAbstraction';
+import { AICoreEngine } from './components/AICoreEngine';
+import { CrossChainManager } from './components/CrossChainManager';
 
 const App: React.FC = () => {
   const [isAgentDemoOpen, setIsAgentDemoOpen] = useState(false);
@@ -27,6 +31,10 @@ const App: React.FC = () => {
         <AppDownload />
         <Features />
         <TechSpecs />
+        <AICoreEngine />
+        <ChainAbstraction />
+        <CrossChainManager />
+        <ExchangeSection />
         <Ecosystem />
         <Comparison />
         <UseCases />
